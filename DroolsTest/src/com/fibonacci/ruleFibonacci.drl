@@ -1,0 +1,29 @@
+package com.fibonacci;
+
+rule Recurse
+salience 10
+when
+$f:Fibonacci(value == -1)
+not(Fibonacci(sequence == 1))
+then
+insert(new Fibonacci($f.getSequence() - 1 ));
+System.out.println("at - " + $f.getSequence());
+end
+
+rule "1and2=1"
+when
+$f:Fibonacci(sequence == 1 || == 2, value == -1)
+then
+modify($f){ setValue(1)};
+System.out.println($f.getSequence() + " == " + $f.getValue());
+end
+
+rule Calculate
+when
+f1:Fibonacci( s1 : sequence, f1.getValue() != 1)
+f2:Fibonacci( sequence == (s1 + 1), v2 : value != 1)
+f3:Fibonacci( s3: sequence == (f2.getSequence() + 1), value == -1)
+then
+modify( f3 ) { setValue( f1.getValue() + v2)};
+System.out.println(s3 + "==" + f3.getValue());
+end
