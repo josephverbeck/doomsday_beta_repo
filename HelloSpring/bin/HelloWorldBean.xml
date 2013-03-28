@@ -10,6 +10,5 @@
     	<property name="message" value="Hello World!"/>
     </bean>
     
-    <bean class="com.tutorialspoint.InitHelloWorld" />
-    
+    <bean class="com.tutorialspoint.InitHelloWorld" />  
 </beans>

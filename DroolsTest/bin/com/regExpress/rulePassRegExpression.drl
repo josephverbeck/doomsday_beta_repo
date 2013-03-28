@@ -1,0 +1,9 @@
+package com.regExpress;
+
+rule "Drools engine"
+when
+password:Password(password not matches regExpression)
+then
+password.setErrors("This doesn't have two numbers");
+System.out.println(password.getErrors());
+end

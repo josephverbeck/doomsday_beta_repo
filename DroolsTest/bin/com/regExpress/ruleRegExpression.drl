@@ -1,0 +1,65 @@
+package com.regExpress;
+
+rule "Two number Match pattern"
+when
+password:Password(password not matches ".*[0-9].*[0-9].*")
+then
+password.setErrors("This doesn't have two numbers");
+System.out.println(password.getErrors());
+end
+
+rule "Check for spaces match pattern"
+when
+password:Password(password not matches "^[\\S]*$")
+then
+System.out.println("This password contains white space");
+end
+
+rule "Two UPPER letters Match pattern"
+when
+password:Password(password not matches ".*[A-Z].*[A-Z].*")
+then
+System.out.println("This doesn't have two UPPER letters");
+end
+
+rule "Two lower letters match pattern"
+when
+password:Password(password not matches ".*[a-z].*[a-z].*")
+then
+System.out.println("This password doesn't have two lower letters");
+end
+
+rule "Special Character match pattern"
+when
+password:Password(password not matches ".*\\p{Punct}.*\\p{Punct}.*")
+then
+System.out.println("This doesn't have two Special Characters");
+end
+
+rule "Check for repeating characters  match pattern"
+when
+password:Password(password matches ".*([a-z0-9A-Z])\\1{2}.*")
+then
+System.out.println("This password has repeats in it");
+end
+
+rule "Check for not allowed characters"
+when
+password:Password(password matches ".*[`~<>|]{1,}.*")
+then
+System.out.println("Characters ~<>| are not allowed");
+end
+
+rule "Check for atleast two alphas match pattern"
+when
+password:Password(password not matches ".*[A-Za-z].*[A-Za-z].*")
+then
+System.out.println("This password doesn't contain two alpha characters");
+end
+
+rule "Check length"
+when
+password:Password(password not matches "[^.]{15,}")
+then
+System.out.println("This password is not long enough");
+end

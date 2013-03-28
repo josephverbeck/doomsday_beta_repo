@@ -1,0 +1,9 @@
+package com.DroolSpring;
+
+rule RuleEngine
+when
+password:Password(password not matches regularExpression)
+then
+password.setErrors("This doesn't have two numbers");
+System.out.println(password.getErrors());
+end

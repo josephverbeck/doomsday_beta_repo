@@ -12,10 +12,10 @@ end
 
 rule "1and2=1"
 when
-$f:Fibonacci(sequence == 1 || == 2, value == -1)
+f:Fibonacci(sequence == 1 || == 2, value == -1)
 then
-modify($f){ setValue(1)};
-System.out.println($f.getSequence() + " == " + $f.getValue());
+modify(f){ setValue(1)};
+System.out.println(f.getSequence() + " == " + f.getValue());
 end
 
 rule Calculate
@@ -24,6 +24,6 @@ f1:Fibonacci( s1 : sequence, f1.getValue() != 1)
 f2:Fibonacci( sequence == (s1 + 1), v2 : value != 1)
 f3:Fibonacci( s3: sequence == (f2.getSequence() + 1), value == -1)
 then
-modify( f3 ) { setValue( f1.getValue() + v2)};
+modify( f3 ) { setValue( v2 + f1.getValue())};
 System.out.println(s3 + "==" + f3.getValue());
 end
