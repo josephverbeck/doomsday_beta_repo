@@ -1,0 +1,17 @@
+package com.leidos.drools.helloworld
+
+import com.leidos.drools.helloworld.Message
+
+rule "Hello World" 
+when
+	message : Message(value == 0) 
+then
+	message.printMessage();
+end
+
+rule "GoodBye World"
+when
+	message : Message(value == 1)
+then
+	message.printMessage();
+end

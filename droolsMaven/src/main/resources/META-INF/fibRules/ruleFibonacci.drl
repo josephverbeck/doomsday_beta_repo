@@ -1,0 +1,29 @@
+package com.leidos.drools.fibonacci;
+
+rule Recurse
+salience 10
+when
+$f:FibonacciModel(value == -1)
+not(FibonacciModel(sequence == 1))
+then
+insert(new FibonacciModel($f.getSequence() - 1 ));
+System.out.println("at - " + $f.getSequence());
+end
+
+rule "1and2=1"
+when
+f:FibonacciModel(sequence == 1 || == 2, value == -1)
+then
+modify(f){ setValue(1)};
+System.out.println(f.getSequence() + " == " + f.getValue());
+end
+
+rule Calculate
+when
+f1:FibonacciModel( s1 : sequence, f1.getValue() != 1)
+f2:FibonacciModel( sequence == (s1 + 1), v2 : value != 1)
+f3:FibonacciModel( s3: sequence == (f2.getSequence() + 1), value == -1)
+then
+modify( f3 ) { setValue( v2 + f1.getValue())};
+System.out.println(s3 + "==" + f3.getValue());
+end
