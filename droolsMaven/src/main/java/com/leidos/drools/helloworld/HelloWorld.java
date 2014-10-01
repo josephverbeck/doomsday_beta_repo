@@ -7,7 +7,7 @@ import com.leidos.drools.KieSessionUtil;
 public class HelloWorld{
 	public static final void main(String[] args){
 		
-		KieSession kSession = createSession("HelloWorldKS");
+		KieSession kSession = new KieSessionUtil().createSession("HelloWorldKS");
 		
 		kSession.insert(Message.HELLO);
 		kSession.fireAllRules();
@@ -17,9 +17,5 @@ public class HelloWorld{
 		
 		kSession.dispose();
 		
-	}
-	
-	public static KieSession createSession(String name){
-		return new KieSessionUtil().createSession(name);
 	}
 }
