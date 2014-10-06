@@ -11,24 +11,38 @@
   </parent>
   
   <repositories>
-    <!-- TODO remove this once maven central replicates the jboss repository -->
-    <!-- Included so the examples sources in the distribution zip build out-of-the-box with maven -->
-    <repository>
-      <id>jboss-public-repository-group</id>
-      <name>JBoss Public Repository Group</name>
-      <url>http://repository.jboss.org/nexus/content/groups/public/</url>
-      <layout>default</layout>
-      <releases>
-        <enabled>true</enabled>
-        <updatePolicy>never</updatePolicy>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-        <updatePolicy>daily</updatePolicy>
-      </snapshots>
-    </repository>
-  </repositories>
+     <repository>
+        <id>kie<!--guvnor-m2-repo--></id>
+           <name>kie-wb Repository Group</name>
+           <url>http://localhost:8080/kie-wb/rest/</url>
+           <layout>default</layout>
+           <releases>
+             <enabled>true</enabled>
+             <updatePolicy>always</updatePolicy>
+           </releases>
+     </repository>
+   </repositories>
   
+  <!--profiles>
+    <profile>
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+        <repositories>
+            <repository>
+                <id>guvnor-m2-repo</id>
+                <name>kie-wb Repository Group</name>
+                <url>http://localhost:4040/kie-wb/rest/</url>
+                <layout>default</layout>
+                <releases>
+                    <enabled>true</enabled>
+                    <updatePolicy>always</updatePolicy>
+                </releases>
+            </repository>
+        </repositories>
+    </profile>
+  </profiles-->
+    
   <build>
     <pluginManagement>
       <plugins>
@@ -85,6 +99,10 @@
       <artifactId>kie-api</artifactId>
     </dependency>
     <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kie-ci</artifactId>            
+    </dependency>
+    <dependency>
       <groupId>org.drools</groupId>
       <artifactId>drools-core</artifactId>
     </dependency>
@@ -100,7 +118,6 @@
       <groupId>org.drools</groupId>
       <artifactId>drools-templates</artifactId>
     </dependency>
-
     <!-- Needed for logging -->
     <dependency>
       <groupId>com.thoughtworks.xstream</groupId>
@@ -131,4 +148,5 @@
       <artifactId>logback-classic</artifactId>
     </dependency>
   </dependencies>
+  
 </project>
