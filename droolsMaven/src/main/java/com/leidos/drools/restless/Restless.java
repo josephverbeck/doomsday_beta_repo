@@ -54,7 +54,6 @@ public class Restless{
 		KieSession kSession = kContainer.newKieSession();
 		kSession.insert(Message.HELLO);
 		kSession.fireAllRules();
-		
 		kSession.insert(Message.GOODBYE);
 		kSession.fireAllRules();
 		

@@ -12,7 +12,7 @@
   
   <repositories>
      <repository>
-        <id>kie<!--guvnor-m2-repo--></id>
+        <id>kie</id>
            <name>kie-wb Repository Group</name>
            <url>http://localhost:8080/kie-wb/rest/</url>
            <layout>default</layout>
@@ -22,26 +22,6 @@
            </releases>
      </repository>
    </repositories>
-  
-  <!--profiles>
-    <profile>
-        <activation>
-            <activeByDefault>true</activeByDefault>
-        </activation>
-        <repositories>
-            <repository>
-                <id>guvnor-m2-repo</id>
-                <name>kie-wb Repository Group</name>
-                <url>http://localhost:4040/kie-wb/rest/</url>
-                <layout>default</layout>
-                <releases>
-                    <enabled>true</enabled>
-                    <updatePolicy>always</updatePolicy>
-                </releases>
-            </repository>
-        </repositories>
-    </profile>
-  </profiles-->
     
   <build>
     <pluginManagement>
