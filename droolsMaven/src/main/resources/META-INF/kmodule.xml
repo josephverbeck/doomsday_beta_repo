@@ -2,8 +2,8 @@
 <kmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://jboss.org/kie/6.0.0/kmodule">
 
-    <kbase name="HelloWorldKB" packages="rules">
-        <ksession name="HelloWorldKS"/>
+    <kbase name="HelloWorldKB" default="true" packages="rules">
+        <ksession name="HelloWorldKS" default="true"/>
     </kbase>
     
     <kbase name="Fibonacci" packages="fibRules">
