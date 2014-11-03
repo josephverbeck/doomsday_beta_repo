@@ -28,7 +28,11 @@ tiles = (TILE_COL * TILE_ROW).times.inject([]) do |arr, idx|
 end
 
 tiles.shuffle.each_with_index do |tile, idx|
-  puts "idx : #{idx} " 
+  puts "idx : #{idx} "
+  puts "tile : #{tiles[idx]}"
+  if tiles[idx] > tiles[idx -1]
+    puts "value = #{tiles[idx].units}"
+  end
   newImage.composite!(tile, idx%TILE_COL * TILE_WIDTH,
                       idx/TILE_COL * TILE_HEIGHT,
                       Magick::OverCompositeOp)
